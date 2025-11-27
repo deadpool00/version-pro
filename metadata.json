@@ -1,0 +1,7 @@
+{
+  "name": "EasyTheraNotes",
+  "description": "Secure, HIPAA-compliant style clinical note generator using advanced audio processing capabilities.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
