@@ -392,6 +392,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 showView('app');
             } else if (view === 'auth') {
                 showView('auth');
+            } else if (view === 'register') {
+                showView('register');
             } else if (view === 'landing') {
                 showView('landing');
             }
@@ -404,6 +406,30 @@ document.addEventListener('DOMContentLoaded', () => {
         authForm.addEventListener('submit', (e) => {
             e.preventDefault();
             showView('app');
+        });
+    }
+
+    // Register form
+    const registerForm = document.getElementById('register-form');
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const passwordConfirm = document.getElementById('register-password-confirm').value;
+            
+            // Validate passwords match
+            if (password !== passwordConfirm) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            // Here you would typically send this data to a backend
+            // For now, we'll just show a success message and redirect to auth
+            console.log('Registration data:', { username, email, password });
+            alert('Account created successfully! Please sign in.');
+            showView('auth');
         });
     }
 

@@ -318,32 +318,28 @@ P: ${noteContent.plan}
                  <div className="p-8 text-center">
                      <div className="mb-6">
                          <span className="text-5xl font-bold text-slate-900">$40</span>
-                         <span className="text-slate-500 text-lg ml-2">/mes</span>
+                         <span className="text-slate-500 text-lg ml-2">/month</span>
                      </div>
                      <ul className="space-y-4 mb-8 text-left">
                          <li className="flex items-center gap-3 text-slate-700">
                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                             <span>Transcripción ilimitada de audio</span>
+                             <span>Unlimited audio transcription</span>
                          </li>
                          <li className="flex items-center gap-3 text-slate-700">
                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                             <span>Generación automática de notas SOAP</span>
+                             <span>Automatic SOAP note generation</span>
                          </li>
                          <li className="flex items-center gap-3 text-slate-700">
                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                             <span>Historial completo de sesiones</span>
+                             <span>Complete session history</span>
                          </li>
                          <li className="flex items-center gap-3 text-slate-700">
                              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                             <span>Cumplimiento HIPAA garantizado</span>
-                         </li>
-                         <li className="flex items-center gap-3 text-slate-700">
-                             <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                             <span>Soporte prioritario 24/7</span>
+                             <span>Guaranteed HIPAA compliance</span>
                          </li>
                      </ul>
                      <button onClick={() => setView(AppView.AUTH)} className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-blue-500/30 transition-all">
-                         Comenzar Ahora
+                         Start Now
                      </button>
                  </div>
              </div>
@@ -367,6 +363,106 @@ P: ${noteContent.plan}
              <p className="text-slate-400 text-sm">© 2024 EasyTheraNotes. Professional Medical Demo.</p>
          </div>
       </footer>
+    </div>
+  );
+
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const username = formData.get('username') as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+    const passwordConfirm = formData.get('passwordConfirm') as string;
+    
+    // Validate passwords match
+    if (password !== passwordConfirm) {
+      alert('Passwords do not match. Please try again.');
+      return;
+    }
+    
+    // Here you would typically send this data to a backend
+    console.log('Registration data:', { username, email, password });
+    alert('Account created successfully! Please sign in.');
+    setView(AppView.AUTH);
+  };
+
+  const renderRegister = () => (
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4 font-sans text-slate-800 animate-[fadeIn_0.5s]">
+      <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-xl border border-slate-100">
+        <div className="flex justify-center mb-8">
+          <div className="p-4 bg-blue-600 rounded-2xl shadow-lg shadow-blue-200">
+            <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="8.5" cy="7" r="4"/>
+              <path d="M20 8v6M23 11h-6"/>
+            </svg>
+          </div>
+        </div>
+        <h1 className="text-2xl font-bold text-center text-slate-900 mb-2">Create Account</h1>
+        <p className="text-center text-slate-500 mb-8">Register for a new account</p>
+        
+        <form onSubmit={handleRegister} className="space-y-5">
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Username</label>
+            <input 
+              type="text" 
+              name="username"
+              className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition font-medium" 
+              placeholder="Enter your username" 
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+            <input 
+              type="email" 
+              name="email"
+              className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition font-medium" 
+              placeholder="Enter your email" 
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+            <input 
+              type="password" 
+              name="password"
+              className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition font-medium" 
+              placeholder="Create a password" 
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">Confirm Password</label>
+            <input 
+              type="password" 
+              name="passwordConfirm"
+              className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition font-medium" 
+              placeholder="Confirm your password" 
+              required
+            />
+          </div>
+          <Button className="w-full py-4 rounded-xl text-base shadow-lg shadow-blue-500/20">Create Account</Button>
+        </form>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-slate-500">
+            Already have an account?{' '}
+            <button onClick={() => setView(AppView.AUTH)} className="text-blue-600 font-semibold hover:text-blue-700 underline">
+              Sign In
+            </button>
+          </p>
+        </div>
+        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-slate-400 font-medium bg-slate-50 py-2 rounded-lg">
+          <Lock className="w-3 h-3" />
+          <span>256-bit End-to-End Encryption</span>
+        </div>
+        <div className="mt-8 text-center">
+             <button onClick={() => setView(AppView.LANDING)} className="text-sm font-medium text-slate-500 hover:text-slate-900">
+                ← Return to Homepage
+             </button>
+        </div>
+      </div>
     </div>
   );
 
@@ -402,6 +498,14 @@ P: ${noteContent.plan}
           </div>
           <Button className="w-full py-4 rounded-xl text-base shadow-lg shadow-blue-500/20">Access Workspace</Button>
         </form>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-slate-500">
+            Don't have an account?{' '}
+            <button onClick={() => setView(AppView.REGISTER)} className="text-blue-600 font-semibold hover:text-blue-700 underline">
+              Sign Up
+            </button>
+          </p>
+        </div>
         <div className="mt-8 flex items-center justify-center gap-2 text-xs text-slate-400 font-medium bg-slate-50 py-2 rounded-lg">
           <Lock className="w-3 h-3" />
           <span>256-bit End-to-End Encryption</span>
@@ -556,6 +660,7 @@ P: ${noteContent.plan}
 
   if (view === AppView.LANDING) return renderLanding();
   if (view === AppView.AUTH) return renderAuth();
+  if (view === AppView.REGISTER) return renderRegister();
 
   const isTabNavDisabled = view === AppView.RECORDING || view === AppView.PROCESSING;
   const isInputActive = [AppView.INPUT, AppView.RECORDING, AppView.PROCESSING, AppView.RESULT].includes(view);

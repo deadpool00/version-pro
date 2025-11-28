@@ -2,6 +2,7 @@
 export enum AppView {
   LANDING = 'LANDING',
   AUTH = 'AUTH',
+  REGISTER = 'REGISTER',
   INPUT = 'INPUT',
   RECORDING = 'RECORDING',
   PROCESSING = 'PROCESSING',
