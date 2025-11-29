@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 
 type MainView = "landing" | "auth" | "register" | "app";
 
 const App: React.FC = () => {
-  const [view, setView] = React.useState<MainView>("landing");
+  const [view, setView] = useState<MainView>("landing");
 
   if (view === "landing") {
     return <LandingView onGoToAuth={() => setView("auth")} />;
@@ -256,7 +256,7 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
             <a href="#">Terms of Service</a>
             <a href="#">Contact Support</a>
           </div>
-          <p className="footer-copyright">
+          <p className="footeropyright">
             © 2024 EasyTheraNotes. Professional Medical Demo.
           </p>
         </div>
@@ -362,48 +362,26 @@ interface RegisterProps {
 const RegisterView: React.FC<RegisterProps> = ({
   onBackToLanding,
   onGoToAuth,
-}) => {
-  const [error, setError] = React.useState<string>('');
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError('');
-
-    const formData = new FormData(e.currentTarget);
-    const password = formData.get('password') as string;
-    const confirmPassword = formData.get('confirmPassword') as string;
-
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-
-    alert('Account created successfully! Please sign in.');
-    onGoToAuth();
-  };
-
-  return (
-    <div id="register-view" className="view active">
-      <div className="auth-container">
-        <div className="auth-card">
-          <div className="auth-icon-wrapper">
-            <div className="auth-icon">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="8.5" cy="7" r="4" />
-                <path d="M20 8v6M23 11h-6" />
-              </svg>
-            </div>
+}) => (
+  <div id="register-view" className="view active">
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-icon-wrapper">
+          <div className="auth-icon">
+            <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="8.5" cy="7" r="4" />
+              <path d="M20 8v6M23 11h-6" />
+            </svg>
           </div>
-          <h1>Create Account</h1>
-          <p className="auth-subtitle">Register for a new account</p>
-          {error && <p style={{ color: '#ef4444', textAlign: 'center', marginBottom: '1rem' }}>{error}</p>}
-          <form id="register-form" className="auth-form" onSubmit={handleSubmit}>
+        </div>
+        <h1>Create Account</h1>
+        <p className="auth-subtitle">Register for a new account</p>
+        <form id="register-form" className="auth-form">
           <div className="form-group">
             <label htmlFor="register-username">Username</label>
             <input
               id="register-username"
-              name="username"
               type="text"
               placeholder="Enter your username"
               required
@@ -413,7 +391,6 @@ const RegisterView: React.FC<RegisterProps> = ({
             <label htmlFor="register-email">Email</label>
             <input
               id="register-email"
-              name="email"
               type="email"
               placeholder="Enter your email"
               required
@@ -423,7 +400,6 @@ const RegisterView: React.FC<RegisterProps> = ({
             <label htmlFor="register-password">Password</label>
             <input
               id="register-password"
-              name="password"
               type="password"
               placeholder="Create a password"
               required
@@ -433,7 +409,6 @@ const RegisterView: React.FC<RegisterProps> = ({
             <label htmlFor="register-password-confirm">Confirm Password</label>
             <input
               id="register-password-confirm"
-              name="confirmPassword"
               type="password"
               placeholder="Confirm your password"
               required
@@ -468,8 +443,7 @@ const RegisterView: React.FC<RegisterProps> = ({
       </div>
     </div>
   </div>
-  );
-};
+);
 
 /* ───────────────────── App View (#app-view, página 3) ───────────────────── */
 
@@ -554,10 +528,9 @@ P: Continue psychotherapy, monitor symptoms, and adjust plan as needed.`;
   const handleCopyNote = async () => {
     try {
       await navigator.clipboard.writeText(generatedNote);
-      alert('Note copied to clipboard successfully!');
-    } catch (error) {
-      console.error('Failed to copy note:', error);
-      alert('Failed to copy note to clipboard. Please try again.');
+      // opcional: podrías mostrar un pequeño feedback visual
+    } catch {
+      // si falla, simplemente no hacemos nada
     }
   };
 
