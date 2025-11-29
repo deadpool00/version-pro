@@ -1,35 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
-type View = 'landing' | 'auth' | 'register' | 'workspace';
+
+type MainView = "landing" | "auth" | "register" | "app";
 
 const App: React.FC = () => {
-  const [view, setView] = useState<View>('landing');
+  const [view, setView] = useState<MainView>("landing");
 
-  switch (view) {
-    case 'auth':
-      return (
-        <AuthView
-          onBackToLanding={() => setView('landing')}
-          onGoToRegister={() => setView('register')}
-          onLogin={() => setView('workspace')}
-        />
-      );
-    case 'register':
-      return (
-        <RegisterView
-          onBackToLanding={() => setView('landing')}
-          onGoToAuth={() => setView('auth')}
-        />
-      );
-    case 'workspace':
-      return <WorkspaceView onLogout={() => setView('landing')} />;
-    case 'landing':
-    default:
-      return <LandingView onGoToAuth={() => setView('auth')} />;
+  if (view === "landing") {
+    return <LandingView onGoToAuth={() => setView("auth")} />;
   }
+
+  if (view === "auth") {
+    return (
+      <AuthView
+        onBackToLanding={() => setView("landing")}
+        onGoToRegister={() => setView("register")}
+        onLogin={() => setView("app")}
+      />
+    );
+  }
+
+  if (view === "register") {
+    return (
+      <RegisterView
+        onBackToLanding={() => setView("landing")}
+        onGoToAuth={() => setView("auth")}
+      />
+    );
+  }
+
+  // view === "app"  → PÁGINA 3: #app-view
+  return <AppView onLogout={() => setView("landing")} />;
 };
 
-/* ───────────────────────── Landing ───────────────────────── */
+export default App;
+
+/* ───────────────────── Landing (página 1) ───────────────────── */
 
 interface LandingProps {
   onGoToAuth: () => void;
@@ -39,8 +45,8 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
   <div id="landing-view" className="view active">
     <div className="landing-container">
       {/* Decorative background */}
-      <div className="landing-bg-1"></div>
-      <div className="landing-bg-2"></div>
+      <div className="landing-bg-1" />
+      <div className="landing-bg-2" />
 
       {/* Header */}
       <header className="landing-header">
@@ -94,7 +100,7 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
         </div>
 
         <div className="hero-visual">
-          <div className="visual-bg"></div>
+          <div className="visual-bg" />
           <div className="visual-card">
             <div className="visual-header">
               <div className="visual-icon">
@@ -104,19 +110,19 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
                 </svg>
               </div>
               <div className="visual-info">
-                <div className="visual-line"></div>
-                <div className="visual-line short"></div>
+                <div className="visual-line" />
+                <div className="visual-line short" />
               </div>
               <div className="visual-status">
-                <div className="status-dot"></div>
+                <div className="status-dot" />
                 Recording
               </div>
             </div>
             <div className="visual-bars">
-              <div className="visual-bar inactive"></div>
-              <div className="visual-bar inactive"></div>
-              <div className="visual-bar inactive"></div>
-              <div className="visual-bar active"></div>
+              <div className="visual-bar inactive" />
+              <div className="visual-bar inactive" />
+              <div className="visual-bar inactive" />
+              <div className="visual-bar active" />
             </div>
             <div className="visual-footer">
               <span>
@@ -135,10 +141,7 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
       <section className="features-section">
         <div className="section-header">
           <h2>Professional Grade Documentation</h2>
-          <p>
-            Designed for modern healthcare providers who value accuracy, security, and
-            efficiency.
-          </p>
+          <p>Designed for modern healthcare providers who value accuracy, security, and efficiency.</p>
         </div>
         <div className="features-grid">
           <div className="feature-card">
@@ -163,8 +166,8 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
             </div>
             <h3>Auto-Structured SOAP</h3>
             <p>
-              Intelligent formatting automatically categorizes Subjective, Objective, Assessment,
-              and Plan data.
+              Intelligent formatting automatically categorizes Subjective, Objective, Assessment, and
+              Plan data.
             </p>
           </div>
 
@@ -176,8 +179,7 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
             </div>
             <h3>Zero-Retention Privacy</h3>
             <p>
-              HIPAA-compliant architecture ensures audio processing happens in volatile memory
-              only.
+              HIPAA-compliant architecture ensures audio processing happens in volatile memory only.
             </p>
           </div>
         </div>
@@ -263,7 +265,7 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
   </div>
 );
 
-/* ───────────────────────── Auth ───────────────────────── */
+/* ───────────────────── Auth (página 2) ───────────────────── */
 
 interface AuthProps {
   onBackToLanding: () => void;
@@ -289,42 +291,39 @@ const AuthView: React.FC<AuthProps> = ({
         </div>
         <h1>Secure Portal</h1>
         <p className="auth-subtitle">Provider Authentication</p>
-
-        {/* AQUÍ ES DONDE EL BOTÓN YA CAMBIA DE VISTA */}
         <form
           id="auth-form"
           className="auth-form"
           onSubmit={(e) => {
             e.preventDefault();
-            onLogin();
+            onLogin(); // ← aquí saltamos a la página 3 (#app-view)
           }}
         >
           <div className="form-group">
-            <label>Provider ID</label>
+            <label htmlFor="provider-id">Provider ID</label>
             <input
+              id="provider-id"
               type="text"
               placeholder="dr.example"
               defaultValue="dr.smith"
-              id="provider-id"
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label htmlFor="provider-password">Password</label>
             <input
+              id="provider-password"
               type="password"
               placeholder="••••••••"
               defaultValue="password"
-              id="provider-password"
             />
           </div>
           <button type="submit" className="btn-primary-full">
             Access Workspace
           </button>
         </form>
-
         <div className="auth-footer">
           <p className="auth-footer-text">
-            Don&apos;t have an account?{' '}
+            Don&apos;t have an account?{" "}
             <button
               type="button"
               className="auth-link"
@@ -353,7 +352,7 @@ const AuthView: React.FC<AuthProps> = ({
   </div>
 );
 
-/* ─────────────────────── Register ─────────────────────── */
+/* ───────────────────── Register ───────────────────── */
 
 interface RegisterProps {
   onBackToLanding: () => void;
@@ -380,38 +379,38 @@ const RegisterView: React.FC<RegisterProps> = ({
         <p className="auth-subtitle">Register for a new account</p>
         <form id="register-form" className="auth-form">
           <div className="form-group">
-            <label>Username</label>
+            <label htmlFor="register-username">Username</label>
             <input
+              id="register-username"
               type="text"
               placeholder="Enter your username"
-              id="register-username"
               required
             />
           </div>
           <div className="form-group">
-            <label>Email</label>
+            <label htmlFor="register-email">Email</label>
             <input
+              id="register-email"
               type="email"
               placeholder="Enter your email"
-              id="register-email"
               required
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
+            <label htmlFor="register-password">Password</label>
             <input
+              id="register-password"
               type="password"
               placeholder="Create a password"
-              id="register-password"
               required
             />
           </div>
           <div className="form-group">
-            <label>Confirm Password</label>
+            <label htmlFor="register-password-confirm">Confirm Password</label>
             <input
+              id="register-password-confirm"
               type="password"
               placeholder="Confirm your password"
-              id="register-password-confirm"
               required
             />
           </div>
@@ -421,12 +420,8 @@ const RegisterView: React.FC<RegisterProps> = ({
         </form>
         <div className="auth-footer">
           <p className="auth-footer-text">
-            Already have an account?{' '}
-            <button
-              type="button"
-              className="auth-link"
-              onClick={onGoToAuth}
-            >
+            Already have an account?{" "}
+            <button type="button" className="auth-link" onClick={onGoToAuth}>
               Sign In
             </button>
           </p>
@@ -450,26 +445,398 @@ const RegisterView: React.FC<RegisterProps> = ({
   </div>
 );
 
-/* ─────────────────────── Workspace ────────────────────── */
+/* ───────────────────── App View (#app-view, página 3) ───────────────────── */
 
-interface WorkspaceProps {
+interface AppViewProps {
   onLogout: () => void;
 }
 
-const WorkspaceView: React.FC<WorkspaceProps> = ({ onLogout }) => (
-  <div className="view active app-view-placeholder">
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1>Workspace</h1>
-        <p className="auth-subtitle">
-          Aquí irá tu vista principal (grabación, historial, etc.).
-        </p>
-        <button className="btn-primary-full" onClick={onLogout}>
-          Log out / Back to Landing
-        </button>
-      </div>
-    </div>
-  </div>
-);
+type WorkspaceView = 'input' | 'recording' | 'processing' | 'result' | 'history';
 
-export default App;
+const AppView: React.FC<AppViewProps> = ({ onLogout }) => {
+  const [view, setView] = React.useState<WorkspaceView>('input');
+  const [patientId, setPatientId] = React.useState('');
+  const [timer, setTimer] = React.useState(0);
+  const timerRef = React.useRef<number | null>(null);
+
+  React.useEffect(() => {
+    // limpiar el intervalo si el componente se desmonta
+    return () => {
+      if (timerRef.current !== null) {
+        window.clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  const formatTime = (seconds: number) => {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}:${s.toString().padStart(2, '0')}`;
+  };
+
+  // 🔴 Empezar “grabación” (simulada)
+  const handleStartRecording = () => {
+    setView('recording');
+    setTimer(0);
+
+    if (timerRef.current !== null) {
+      window.clearInterval(timerRef.current);
+    }
+
+    timerRef.current = window.setInterval(() => {
+      setTimer((prev) => prev + 1);
+    }, 1000);
+  };
+
+  // ⏹️ Detener “grabación” y pasar a procesamiento + resultado
+  const handleStopRecording = () => {
+    if (timerRef.current !== null) {
+      window.clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    setView('processing');
+
+    // Simulamos 2s de procesamiento y luego mostramos la nota generada
+    setTimeout(() => {
+      setView('result');
+    }, 2000);
+  };
+
+  const handleGoToInput = () => {
+    setView('input');
+  };
+
+  const handleGoToHistory = () => {
+    setView('history');
+  };
+
+  const handleDiscardAndNew = () => {
+    setView('input');
+    setTimer(0);
+  };
+
+  const generatedNote = `SOAP Note – Demo
+Patient: ${patientId || 'PT-0000'}
+Date: ${new Date().toLocaleDateString()}
+
+S: Patient reports ongoing symptoms compatible with anxiety and stress.
+O: Affect congruent with mood, oriented x3, no acute safety concerns observed.
+A: Generalized anxiety features with situational stressors.
+P: Continue psychotherapy, monitor symptoms, and adjust plan as needed.`;
+
+  const handleCopyNote = async () => {
+    try {
+      await navigator.clipboard.writeText(generatedNote);
+      // opcional: podrías mostrar un pequeño feedback visual
+    } catch {
+      // si falla, simplemente no hacemos nada
+    }
+  };
+
+  const isHistory = view === 'history';
+
+  return (
+    <div id="app-view" className="view active">
+      {/* App Header */}
+      <header className="app-header">
+        <div className="app-header-content">
+          <div className="app-logo" onClick={handleGoToInput}>
+            <div className="logo-icon-small bg-blue">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+            </div>
+            <span>EasyTheraNotes</span>
+          </div>
+          <div className="app-header-right">
+            <div className="user-info">
+              <span className="user-name">Dr. Smith</span>
+              <span className="user-status">
+                <span className="status-dot-small"></span>
+                Connected
+              </span>
+            </div>
+            <div className="header-divider"></div>
+            <button className="icon-btn" type="button" onClick={onLogout}>
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <path d="M16 17l5-5-5-5" />
+                <path d="M21 12H9" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="app-main">
+        {/* Navigation Tabs */}
+        <div className="nav-tabs">
+          <button
+            type="button"
+            className={`nav-tab ${!isHistory ? 'active' : ''}`}
+            onClick={handleGoToInput}
+          >
+            <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+            </svg>
+            Active Session
+          </button>
+          <button
+            type="button"
+            className={`nav-tab ${isHistory ? 'active' : ''}`}
+            onClick={handleGoToHistory}
+          >
+            <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 3v18h18" />
+              <path d="M7 16l4-4 4 4 6-6" />
+            </svg>
+            History Archive
+          </button>
+        </div>
+
+        {/* VISTA: INPUT (New Session) */}
+        {view === 'input' && (
+          <>
+            <div id="input-view" className="app-content-view active">
+              <div className="session-card">
+                <div className="session-header">
+                  <h2>New Session</h2>
+                  <p>Configure your session details below to begin documentation.</p>
+                </div>
+                <div className="session-body">
+                  <label className="session-label">Patient Identifier</label>
+                  <div className="input-wrapper">
+                    <div className="input-icon">
+                      <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="e.g. PT-2024-8842"
+                      className="session-input"
+                      value={patientId}
+                      onChange={(e) => setPatientId(e.target.value)}
+                    />
+                  </div>
+                  <div className="action-buttons">
+                    <button
+                      type="button"
+                      className="action-btn record-btn"
+                      onClick={handleStartRecording}
+                    >
+                      <div className="action-icon">
+                        <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                          <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span className="action-title">Start Recording</span>
+                        <span className="action-subtitle">Use microphone (demo)</span>
+                      </div>
+                    </button>
+
+                    <label className="action-btn upload-btn">
+                      <input type="file" accept="audio/*" className="file-input" />
+                      <div className="action-icon">
+                        <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                          <path d="M17 8l-5-5-5 5" />
+                          <path d="M12 3v12" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span className="action-title">Upload Audio</span>
+                        <span className="action-subtitle">MP3, WAV, M4A</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="privacy-notice">
+              <div className="notice-icon">
+                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <h4>Privacy Protocol Active</h4>
+                <p>
+                  Ensure no direct personal identifiers (names, specific addresses) are spoken. The AI is
+                  trained to structure clinical data while maintaining anonymity.
+                </p>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* VISTA: RECORDING */}
+        {view === 'recording' && (
+          <div id="recording-view" className="app-content-view active">
+            <div className="recording-container">
+              <div className="visualizer-wrapper">
+                <canvas className="audio-visualizer" />
+                <div className="recording-icon-wrapper">
+                  <div className="recording-pulse-1"></div>
+                  <div className="recording-pulse-2"></div>
+                  <div className="recording-icon"></div>
+                </div>
+              </div>
+              <div className="recording-info">
+                <div className="recording-badge">
+                  <span className="recording-dot"></span>
+                  Recording In Progress
+                </div>
+                <div className="recording-timer">{formatTime(timer)}</div>
+                <p className="recording-session-id">
+                  Session ID: {patientId || 'AUTO-SESSION'}
+                </p>
+              </div>
+              <button
+                type="button"
+                className="btn-danger"
+                onClick={handleStopRecording}
+              >
+                End Session
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* VISTA: PROCESSING */}
+        {view === 'processing' && (
+          <div id="processing-view" className="app-content-view active">
+            <div className="processing-container">
+              <div className="processing-spinner-wrapper">
+                <div className="processing-pulse"></div>
+                <div className="processing-spinner">
+                  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                  </svg>
+                </div>
+              </div>
+              <div className="processing-text">
+                <h3>Processing Audio</h3>
+                <p>Securely connecting to Clinical AI Engine...</p>
+              </div>
+              <div className="processing-steps">
+                <span className="step-active">TRANSCRIBING</span>
+                <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M5 12h14" />
+                  <path d="M12 5l7 7-7 7" />
+                </svg>
+                <span>ANALYZING</span>
+                <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M5 12h14" />
+                  <path d="M12 5l7 7-7 7" />
+                </svg>
+                <span>STRUCTURING</span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* VISTA: RESULT */}
+        {view === 'result' && (
+          <div id="result-view" className="app-content-view active">
+            <div className="result-header">
+              <div className="result-header-left">
+                <h2>
+                  <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <path d="M14 2v6h6" />
+                    <path d="M16 13H8" />
+                    <path d="M16 17H8" />
+                    <path d="M10 9H8" />
+                  </svg>
+                  Generated Note
+                </h2>
+              </div>
+              <span className="result-badge">
+                <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                Processing Complete
+              </span>
+            </div>
+            <div className="note-card">
+              <div className="note-header">
+                <span className="note-label">
+                  <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  Clinical Documentation
+                </span>
+                <span className="note-readonly">READ ONLY</span>
+              </div>
+              <div className="note-content">
+                <pre>{generatedNote}</pre>
+              </div>
+            </div>
+            <div className="result-actions">
+              <button
+                type="button"
+                className="btn-primary-full"
+                onClick={handleCopyNote}
+              >
+                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy Note Text
+              </button>
+              <button
+                type="button"
+                className="btn-outline-danger"
+                onClick={handleDiscardAndNew}
+              >
+                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                  <path d="M10 11v6" />
+                  <path d="M14 11v6" />
+                </svg>
+                Discard &amp; New Session
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* VISTA: HISTORY */}
+        {view === 'history' && (
+          <div id="history-view" className="app-content-view active">
+            <div className="history-header">
+              <h2>Session History</h2>
+              <span className="history-count">0 Records</span>
+            </div>
+            <div id="history-empty" className="history-empty">
+              <div className="empty-icon">
+                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M3 3v18h18" />
+                  <path d="M7 16l4-4 4 4 6-6" />
+                </svg>
+              </div>
+              <h3>No Session History</h3>
+              <p>Your secure session records will appear here after your first completed recording.</p>
+              <button
+                type="button"
+                className="btn-outline"
+                onClick={handleGoToInput}
+              >
+                Start New Session
+              </button>
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+};
