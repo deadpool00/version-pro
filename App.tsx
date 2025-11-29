@@ -201,136 +201,136 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      <section className="features-section-new">
         <div className="section-header">
-          <h2>Professional Grade Documentation</h2>
-          <p>Designed for modern healthcare providers who value accuracy, security, and efficiency.</p>
+          <div className="section-badge">FEATURES</div>
+          <h2>Everything you need for effortless documentation</h2>
+          <p>Spend more time with patients, less time on paperwork</p>
         </div>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon bg-blue">
+        <div className="feature-cards-grid">
+          <div className="feature-card-new">
+            <div className="feature-card-icon">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
               </svg>
             </div>
-            <h3>Instant Transcription</h3>
-            <p>
-              Proprietary medical speech-to-text engine captures complex terminology with 99.8%
-              accuracy.
-            </p>
+            <h3>One-Click Recording</h3>
+            <p>Start recording with a single click. Audio is encrypted and processed in real-time with clinical accuracy.</p>
+            <div className="feature-visual">
+              <div className="visual-mic-line"></div>
+            </div>
           </div>
 
-          <div className="feature-card">
-            <div className="feature-icon bg-indigo">
+          <div className="feature-card-new featured">
+            <div className="featured-badge">MOST POPULAR</div>
+            <div className="feature-card-icon">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
               </svg>
             </div>
-            <h3>Auto-Structured SOAP</h3>
-            <p>
-              Intelligent formatting automatically categorizes Subjective, Objective, Assessment, and
-              Plan data.
-            </p>
+            <h3>AI-Powered SOAP Notes</h3>
+            <p>Our specialized AI understands clinical context and generates accurate, professional SOAP notes in seconds.</p>
+            <div className="feature-visual">
+              <div className="visual-dots">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+              </div>
+            </div>
           </div>
 
-          <div className="feature-card">
-            <div className="feature-icon bg-slate">
+          <div className="feature-card-new">
+            <div className="feature-card-icon">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
             </div>
-            <h3>Zero-Retention Privacy</h3>
-            <p>
-              HIPAA-compliant architecture ensures audio processing happens in volatile memory only.
-            </p>
+            <h3>Smart Editing</h3>
+            <p>Review and refine generated notes with our intuitive editor. Your clinical voice, enhanced by AI.</p>
+            <div className="feature-visual">
+              <div className="visual-line-short"></div>
+            </div>
           </div>
 
-          <div className="feature-card">
-            <div className="feature-icon bg-green">
+          <div className="feature-card-new">
+            <div className="feature-card-icon">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 6v6l4 2" />
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="M7 10l5 5 5-5" />
+                <path d="M12 15V3" />
               </svg>
             </div>
-            <h3>Save 2+ Hours Daily</h3>
-            <p>
-              Reduce documentation time by up to 70% and spend more quality time with your patients.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon bg-purple">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M3 3v18h18" />
-                <path d="M18 17V9M14 17v-4M10 17v-2M6 17v-6" />
-              </svg>
+            <h3>EHR Integration</h3>
+            <p>Export directly to SimplePractice, TherapyNotes, and more. One click to your existing workflow.</p>
+            <div className="feature-visual">
+              <div className="visual-export-icon"></div>
             </div>
-            <h3>Analytics Dashboard</h3>
-            <p>
-              Track session metrics, note generation statistics, and productivity improvements over time.
-            </p>
-          </div>
-
-          <div className="feature-card">
-            <div className="feature-icon bg-orange">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </div>
-            <h3>Multi-User Support</h3>
-            <p>
-              Team-based workflows with role management and secure sharing across your practice.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="testimonials-section">
-        <div className="section-header">
-          <h2>Trusted by Healthcare Professionals</h2>
-          <p>Join thousands of clinicians who have transformed their documentation workflow</p>
-        </div>
-        <div className="testimonials-grid">
-          <div className="testimonial-card">
-            <div className="testimonial-quote">
-              "EasyTheraNotes has completely transformed my practice. What used to take me 2 hours of documentation now takes 15 minutes. The accuracy is remarkable."
-            </div>
-            <div className="testimonial-author">
-              <div className="author-avatar">DS</div>
-              <div className="author-info">
-                <div className="author-name">Dr. Sarah Martinez</div>
-                <div className="author-title">Clinical Psychologist</div>
+      {/* HIPAA Security Section */}
+      <section className="hipaa-section">
+        <div className="hipaa-content">
+          <div className="hipaa-text">
+            <div className="section-badge">SECURITY</div>
+            <h2>Built for HIPAA Compliance</h2>
+            <p className="hipaa-description">
+              Your patients' privacy is our top priority. EasyTheraNotes exceeds industry standards for healthcare data protection.
+            </p>
+            <div className="hipaa-features">
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>End-to-end AES-256 encryption</h4>
+                  <p>Your data is encrypted at rest and in transit</p>
+                </div>
+              </div>
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>BAA included with all plans</h4>
+                  <p>Business Associate Agreement ready to sign</p>
+                </div>
+              </div>
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>SOC 2 Type II certified</h4>
+                  <p>Independently audited security controls</p>
+                </div>
+              </div>
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>Auto-delete audio</h4>
+                  <p>Recordings deleted after processing</p>
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="testimonial-card">
-            <div className="testimonial-quote">
-              "The HIPAA compliance and zero-retention policy give me complete peace of mind. My patients' privacy is protected while I gain efficiency."
-            </div>
-            <div className="testimonial-author">
-              <div className="author-avatar">JC</div>
-              <div className="author-info">
-                <div className="author-name">James Chen, LMFT</div>
-                <div className="author-title">Marriage & Family Therapist</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="testimonial-card">
-            <div className="testimonial-quote">
-              "As someone who sees 8-10 clients daily, this tool is a game-changer. Professional notes ready immediately after each session."
-            </div>
-            <div className="testimonial-author">
-              <div className="author-avatar">RP</div>
-              <div className="author-info">
-                <div className="author-name">Dr. Rachel Patel</div>
-                <div className="author-title">Licensed Clinical Social Worker</div>
-              </div>
+          <div className="hipaa-visual">
+            <div className="hipaa-shield-outer"></div>
+            <div className="hipaa-shield-middle"></div>
+            <div className="hipaa-shield-inner">
+              <svg className="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
             </div>
           </div>
         </div>
@@ -382,20 +382,6 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
                     <polyline points="22 4 12 14.01 9 11.01" />
                   </svg>
                   Guaranteed HIPAA compliance
-                </li>
-                <li>
-                  <svg className="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  Priority email support
-                </li>
-                <li>
-                  <svg className="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                  Export to PDF, DOCX, TXT
                 </li>
               </ul>
               <button className="btn-pricing" onClick={onGoToAuth}>
