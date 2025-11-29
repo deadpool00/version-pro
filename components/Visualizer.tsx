@@ -23,22 +23,22 @@ const Visualizer: React.FC<VisualizerProps> = ({ isRecording, audioStream }) => 
     const audioContext = new AudioContext();
     const source = audioContext.createMediaStreamSource(audioStream);
     const analyzer = audioContext.createAnalyser();
-    analyzer.fftSize = 64;
+    analyzer.fftSize = 64; // Tamaño de la muestra para la Transformada de Fourier
     source.connect(analyzer);
 
     const bufferLength = analyzer.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
 
+    // Actualiza los datos cada 50ms
     const updateInterval = setInterval(() => {
       analyzer.getByteFrequencyData(dataArray);
-      
-      // Map a subset of frequency bins to the 20 bars
+
       const newData: DataPoint[] = [];
       const step = Math.floor(bufferLength / 20);
-      
+
       for (let i = 0; i < 20; i++) {
         const value = dataArray[i * step] || 0;
-        newData.push({ name: i.toString(), value: Math.max(value, 5) }); 
+        newData.push({ name: i.toString(), value: Math.max(value, 5) });
       }
       setData(newData);
 
@@ -57,11 +57,11 @@ const Visualizer: React.FC<VisualizerProps> = ({ isRecording, audioStream }) => 
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} barCategoryGap={2}>
           <YAxis hide domain={[0, 255]} />
-          <Bar 
-            dataKey="value" 
-            fill="#ef4444" 
-            radius={[4, 4, 0, 0]} 
-            isAnimationActive={false}
+          <Bar
+            dataKey="value"
+            fill="#ef4444"
+            radius={[4, 4, 0, 0]}
+            isAnimationActive={false} // Importante para rendimiento en tiempo real
           />
         </BarChart>
       </ResponsiveContainer>
