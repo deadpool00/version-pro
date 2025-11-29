@@ -97,6 +97,22 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
               Watch Demo
             </button>
           </div>
+          <div className="hero-stats">
+            <div className="stat-item">
+              <div className="stat-number">10K+</div>
+              <div className="stat-label">Clinicians</div>
+            </div>
+            <div className="stat-divider" />
+            <div className="stat-item">
+              <div className="stat-number">99.8%</div>
+              <div className="stat-label">Accuracy</div>
+            </div>
+            <div className="stat-divider" />
+            <div className="stat-item">
+              <div className="stat-number">5M+</div>
+              <div className="stat-label">Notes Generated</div>
+            </div>
+          </div>
         </div>
 
         <div className="hero-visual">
@@ -133,6 +149,48 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
               </span>
               <span className="mono">00:01:23</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="how-it-works-section">
+        <div className="section-header">
+          <h2>How It Works</h2>
+          <p>Three simple steps to transform your clinical documentation workflow</p>
+        </div>
+        <div className="steps-grid">
+          <div className="step-card">
+            <div className="step-number">1</div>
+            <div className="step-icon bg-blue">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+              </svg>
+            </div>
+            <h3>Record Session</h3>
+            <p>Start recording your patient session with a single click. Upload audio files or use real-time recording.</p>
+          </div>
+          <div className="step-card">
+            <div className="step-number">2</div>
+            <div className="step-icon bg-indigo">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
+            </div>
+            <h3>AI Processing</h3>
+            <p>Our advanced AI transcribes and analyzes the conversation, identifying key clinical information automatically.</p>
+          </div>
+          <div className="step-card">
+            <div className="step-number">3</div>
+            <div className="step-icon bg-green">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
+              </svg>
+            </div>
+            <h3>Get SOAP Notes</h3>
+            <p>Receive professionally formatted SOAP notes ready to copy into your EHR system or export as needed.</p>
           </div>
         </div>
       </section>
@@ -182,6 +240,94 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
               HIPAA-compliant architecture ensures audio processing happens in volatile memory only.
             </p>
           </div>
+
+          <div className="feature-card">
+            <div className="feature-icon bg-green">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3>Save 2+ Hours Daily</h3>
+            <p>
+              Reduce documentation time by up to 70% and spend more quality time with your patients.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon bg-purple">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M3 3v18h18" />
+                <path d="M18 17V9M14 17v-4M10 17v-2M6 17v-6" />
+              </svg>
+            </div>
+            <h3>Analytics Dashboard</h3>
+            <p>
+              Track session metrics, note generation statistics, and productivity improvements over time.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon bg-orange">
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3>Multi-User Support</h3>
+            <p>
+              Team-based workflows with role management and secure sharing across your practice.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials-section">
+        <div className="section-header">
+          <h2>Trusted by Healthcare Professionals</h2>
+          <p>Join thousands of clinicians who have transformed their documentation workflow</p>
+        </div>
+        <div className="testimonials-grid">
+          <div className="testimonial-card">
+            <div className="testimonial-quote">
+              "EasyTheraNotes has completely transformed my practice. What used to take me 2 hours of documentation now takes 15 minutes. The accuracy is remarkable."
+            </div>
+            <div className="testimonial-author">
+              <div className="author-avatar">DS</div>
+              <div className="author-info">
+                <div className="author-name">Dr. Sarah Martinez</div>
+                <div className="author-title">Clinical Psychologist</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-quote">
+              "The HIPAA compliance and zero-retention policy give me complete peace of mind. My patients' privacy is protected while I gain efficiency."
+            </div>
+            <div className="testimonial-author">
+              <div className="author-avatar">JC</div>
+              <div className="author-info">
+                <div className="author-name">James Chen, LMFT</div>
+                <div className="author-title">Marriage & Family Therapist</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="testimonial-card">
+            <div className="testimonial-quote">
+              "As someone who sees 8-10 clients daily, this tool is a game-changer. Professional notes ready immediately after each session."
+            </div>
+            <div className="testimonial-author">
+              <div className="author-avatar">RP</div>
+              <div className="author-info">
+                <div className="author-name">Dr. Rachel Patel</div>
+                <div className="author-title">Licensed Clinical Social Worker</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -189,10 +335,11 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
       <section className="pricing-section">
         <div className="section-header">
           <h2>Simple, Transparent Pricing</h2>
-          <p>Choose the plan that works best for your practice.</p>
+          <p>Choose the plan that works best for your practice. 14-day free trial, no credit card required.</p>
         </div>
         <div className="pricing-card-wrapper">
           <div className="pricing-card">
+            <div className="pricing-badge">Most Popular</div>
             <div className="pricing-header">
               <h3>Professional Plan</h3>
               <p>Everything you need for clinical documentation</p>
@@ -231,10 +378,67 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
                   </svg>
                   Guaranteed HIPAA compliance
                 </li>
+                <li>
+                  <svg className="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  Priority email support
+                </li>
+                <li>
+                  <svg className="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  Export to PDF, DOCX, TXT
+                </li>
               </ul>
               <button className="btn-pricing" onClick={onGoToAuth}>
-                Start Now
+                Start Free Trial
               </button>
+              <p className="pricing-note">Cancel anytime. No long-term contracts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="cta-content">
+          <h2>Ready to Transform Your Practice?</h2>
+          <p>Join 10,000+ healthcare professionals who have reclaimed their time and improved documentation quality.</p>
+          <div className="cta-buttons">
+            <button className="btn-cta-primary" onClick={onGoToAuth}>
+              Start Free Trial
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button className="btn-cta-secondary" onClick={onGoToAuth}>
+              Schedule a Demo
+            </button>
+          </div>
+          <div className="cta-features">
+            <div className="cta-feature">
+              <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>14-day free trial</span>
+            </div>
+            <div className="cta-feature">
+              <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>No credit card required</span>
+            </div>
+            <div className="cta-feature">
+              <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>Cancel anytime</span>
             </div>
           </div>
         </div>
