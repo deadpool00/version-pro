@@ -71,20 +71,17 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <div className="hero-badge">
+          <div className="hero-badge-new">
             <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span>Next Gen Clinical Intelligence</span>
+            <span>NEXT GEN CLINICAL INTELLIGENCE</span>
           </div>
-          <h1 className="hero-title">
+          <h1 className="hero-title-clean">
             Clinical Notes,
-            <br />
-            <span className="gradient-text">Reimagined.</span>
           </h1>
           <p className="hero-description">
-            Turn patient conversations into structured, professional SOAP notes instantly.
-            Experience the power of advanced neural audio processing with zero data retention.
+            Turn patient conversations into structured, professional SOAP notes instantly. Experience the power of advanced neural audio processing with zero data retention.
           </p>
           <div className="hero-buttons">
             <button className="btn-hero-primary" onClick={onGoToAuth}>
@@ -93,51 +90,11 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            <button className="btn-hero-secondary" onClick={onGoToAuth}>
-              Watch Demo
-            </button>
-          </div>
-        </div>
-
-        <div className="hero-visual">
-          <div className="visual-bg" />
-          <div className="visual-card">
-            <div className="visual-header">
-              <div className="visual-icon">
-                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
-                </svg>
-              </div>
-              <div className="visual-info">
-                <div className="visual-line" />
-                <div className="visual-line short" />
-              </div>
-              <div className="visual-status">
-                <div className="status-dot" />
-                Recording
-              </div>
-            </div>
-            <div className="visual-bars">
-              <div className="visual-bar inactive" />
-              <div className="visual-bar inactive" />
-              <div className="visual-bar inactive" />
-              <div className="visual-bar active" />
-            </div>
-            <div className="visual-footer">
-              <span>
-                <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-                AI Processing
-              </span>
-              <span className="mono">00:01:23</span>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Professional Grade Documentation */}
       <section className="features-section">
         <div className="section-header">
           <h2>Professional Grade Documentation</h2>
@@ -185,14 +142,80 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
         </div>
       </section>
 
+      {/* HIPAA Security Section */}
+      <section className="hipaa-section">
+        <div className="hipaa-content">
+          <div className="hipaa-text">
+            <div className="section-badge">SECURITY</div>
+            <h2>Built for HIPAA Compliance</h2>
+            <p className="hipaa-description">
+              Your patients' privacy is our top priority. EasyTheraNotes exceeds industry standards for healthcare data protection.
+            </p>
+            <div className="hipaa-features">
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>End-to-end AES-256 encryption</h4>
+                  <p>Your data is encrypted at rest and in transit</p>
+                </div>
+              </div>
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>BAA included with all plans</h4>
+                  <p>Business Associate Agreement ready to sign</p>
+                </div>
+              </div>
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>SOC 2 Type II certified</h4>
+                  <p>Independently audited security controls</p>
+                </div>
+              </div>
+              <div className="hipaa-feature">
+                <svg className="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <div className="hipaa-feature-text">
+                  <h4>Auto-delete audio</h4>
+                  <p>Recordings deleted after processing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="hipaa-visual">
+            <div className="hipaa-shield-outer"></div>
+            <div className="hipaa-shield-middle"></div>
+            <div className="hipaa-shield-inner">
+              <svg className="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="pricing-section">
         <div className="section-header">
           <h2>Simple, Transparent Pricing</h2>
-          <p>Choose the plan that works best for your practice.</p>
+          <p>Choose the plan that works best for your practice. 14-day free trial, no credit card required.</p>
         </div>
         <div className="pricing-card-wrapper">
           <div className="pricing-card">
+            <div className="pricing-badge">Most Popular</div>
             <div className="pricing-header">
               <h3>Professional Plan</h3>
               <p>Everything you need for clinical documentation</p>
@@ -233,8 +256,51 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
                 </li>
               </ul>
               <button className="btn-pricing" onClick={onGoToAuth}>
-                Start Now
+                Start Free Trial
               </button>
+              <p className="pricing-note">Cancel anytime. No long-term contracts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="cta-content">
+          <h2>Ready to Transform Your Practice?</h2>
+          <p>Join 10,000+ healthcare professionals who have reclaimed their time and improved documentation quality.</p>
+          <div className="cta-buttons">
+            <button className="btn-cta-primary" onClick={onGoToAuth}>
+              Start Free Trial
+              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <button className="btn-cta-secondary" onClick={onGoToAuth}>
+              Schedule a Demo
+            </button>
+          </div>
+          <div className="cta-features">
+            <div className="cta-feature">
+              <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>14-day free trial</span>
+            </div>
+            <div className="cta-feature">
+              <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>No credit card required</span>
+            </div>
+            <div className="cta-feature">
+              <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>Cancel anytime</span>
             </div>
           </div>
         </div>
