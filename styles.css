@@ -43,7 +43,7 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     color: var(--slate-800);
-    background-color: #000000;
+    background-color: var(--slate-50);
     line-height: 1.5;
 }
 
@@ -2357,7 +2357,7 @@ body {
 
 /* Dark Mode Hero Redesign */
 .landing-container {
-    background: #000000 !important;
+    background: var(--slate-50) !important;
 }
 
 .landing-header {
@@ -2600,26 +2600,344 @@ body {
 
 /* Update other sections for dark mode */
 .how-it-works-section {
-    background: #000000;
+    background: var(--slate-50);
 }
 
 .section-header h2 {
-    color: white;
+    color: var(--slate-900);
 }
 
 .section-header p {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--slate-600);
 }
 
 .testimonials-section {
-    background: #000000;
+    background: var(--slate-50);
 }
 
 .features-section {
-    background: #000000;
+    background: var(--slate-50);
 }
 
 .pricing-section {
-    background: #000000;
+    background: var(--slate-50);
 }
 
+
+/* New Feature Cards Section */
+.features-section-new {
+    padding: 128px 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    background: var(--slate-50);
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 9999px;
+    color: var(--blue-600);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
+.feature-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+@media (min-width: 768px) {
+    .feature-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.feature-card-new {
+    position: relative;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 48px 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    min-height: 320px;
+}
+
+.feature-card-new:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card-new.featured {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.2), rgba(59, 130, 246, 0.2));
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    padding: 6px 12px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.feature-card-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(59, 130, 246, 0.15);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.feature-card-icon .icon {
+    color: var(--blue-400);
+}
+
+.feature-card-new h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.feature-card-new p {
+    color: rgba(203, 213, 225, 0.8);
+    line-height: 1.75;
+    font-size: 15px;
+}
+
+.feature-visual {
+    margin-top: 32px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-mic-line {
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--blue-500), transparent);
+    border-radius: 9999px;
+}
+
+.visual-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.visual-dots .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--blue-500);
+    border-radius: 50%;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+.visual-dots .dot:nth-child(1) { animation-delay: 0s; }
+.visual-dots .dot:nth-child(2) { animation-delay: 0.2s; }
+.visual-dots .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.visual-line-short {
+    width: 60%;
+    height: 2px;
+    background: var(--blue-500);
+    border-radius: 9999px;
+}
+
+.visual-export-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--blue-500);
+    border-radius: 8px;
+    position: relative;
+}
+
+.visual-export-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--blue-500);
+}
+
+/* HIPAA Security Section */
+.hipaa-section {
+    padding: 128px 24px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hipaa-section::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1), transparent 70%);
+    border-radius: 50%;
+}
+
+.hipaa-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hipaa-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.hipaa-text .section-badge {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #22c55e;
+}
+
+.hipaa-text h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.hipaa-description {
+    color: rgba(203, 213, 225, 0.7);
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 48px;
+}
+
+.hipaa-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hipaa-feature {
+    display: flex;
+    gap: 16px;
+}
+
+.icon-check-circle {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    color: #22c55e;
+    flex-shrink: 0;
+}
+
+.hipaa-feature-text h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.hipaa-feature-text p {
+    font-size: 14px;
+    color: rgba(203, 213, 225, 0.6);
+}
+
+.hipaa-visual {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    margin: 0 auto;
+}
+
+.hipaa-shield-outer,
+.hipaa-shield-middle,
+.hipaa-shield-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+.hipaa-shield-outer {
+    width: 100%;
+    height: 100%;
+    border-color: rgba(59, 130, 246, 0.2);
+    animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.hipaa-shield-middle {
+    width: 75%;
+    height: 75%;
+    border-color: rgba(139, 92, 246, 0.3);
+    animation: pulse-ring 3s ease-in-out infinite 0.5s;
+}
+
+.hipaa-shield-inner {
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+}
+
+@keyframes pulse-ring {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+.shield-icon {
+    width: 48px;
+    height: 48px;
+    color: white;
+    stroke-width: 2;
+}
