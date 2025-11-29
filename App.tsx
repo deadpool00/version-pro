@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Mic, Square, Upload, FileText, Copy, Trash2, Lock, CheckCircle, AlertCircle, LogOut, Activity, Loader2, Zap, Shield, ArrowRight, History, Calendar, ChevronRight, Clock, ArrowLeft, Stethoscope, Sparkles } from 'lucide-react';
+import Visualizer from './components/Visualizer';
 
 // Types
 enum AppView {
@@ -55,70 +56,6 @@ const Button: React.FC<{
     >
       {children}
     </button>
-  );
-};
-
-// Visualizer Component
-const Visualizer: React.FC<{ isRecording: boolean; audioStream: MediaStream | null }> = ({ isRecording, audioStream }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
-
-  useEffect(() => {
-    if (!isRecording || !audioStream || !canvasRef.current) return;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-    const analyser = audioContext.createAnalyser();
-    const source = audioContext.createMediaStreamSource(audioStream);
-    source.connect(analyser);
-    analyser.fftSize = 256;
-
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
-
-    const draw = () => {
-      animationRef.current = requestAnimationFrame(draw);
-      analyser.getByteFrequencyData(dataArray);
-
-      ctx.fillStyle = 'rgb(248, 250, 252)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      const barWidth = (canvas.width / bufferLength) * 2.5;
-      let x = 0;
-
-      for (let i = 0; i < bufferLength; i++) {
-        const barHeight = (dataArray[i] / 255) * canvas.height * 0.8;
-        
-        const gradient = ctx.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
-        gradient.addColorStop(0, 'rgb(239, 68, 68)');
-        gradient.addColorStop(1, 'rgb(244, 114, 182)');
-        
-        ctx.fillStyle = gradient;
-        ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
-        x += barWidth + 1;
-      }
-    };
-
-    draw();
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-      audioContext.close();
-    };
-  }, [isRecording, audioStream]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={600}
-      height={200}
-      className="w-full max-w-2xl rounded-2xl shadow-lg"
-    />
   );
 };
 
