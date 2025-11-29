@@ -132,7 +132,7 @@ function stopRecording() {
     if (AppState.mediaRecorder && AppState.mediaRecorder.state === 'recording') {
         AppState.mediaRecorder.stop();
         AppState.mediaRecorder.onstop = async () => {
-            const audioBlob = new Blob(AppState.audioChunks, { type: 'audio/mp3' });
+            const audioBlob = new Blob(AppState.audioChunks, { type: 'audio/webm' });
 
             // Stop all tracks
             if (AppState.stream) {

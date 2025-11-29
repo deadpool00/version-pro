@@ -21,8 +21,3 @@ export interface SoapNote {
   assessment: string;
   plan: string;
 }
-
-export interface AudioData {
-  blob: Blob;
-  duration: number;
-}
