@@ -71,16 +71,20 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <div className="hero-badge">
+          <div className="hero-badge-hipaa">
             <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
-            <span>Next Gen Clinical Intelligence</span>
+            <span>HIPAA Compliant Platform</span>
           </div>
-          <h1 className="hero-title">
-            Clinical Notes,
+          <h1 className="hero-title-new">
+            Transform
             <br />
-            <span className="gradient-text">Reimagined.</span>
+            Your Sessions
+            <br />
+            Into Perfect
+            <br />
+            <span className="gradient-text-purple">SOAP Notes</span>
           </h1>
           <p className="hero-description">
             Turn patient conversations into structured, professional SOAP notes instantly.
@@ -97,57 +101,58 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
               Watch Demo
             </button>
           </div>
-          <div className="hero-stats">
-            <div className="stat-item">
-              <div className="stat-number">10K+</div>
-              <div className="stat-label">Clinicians</div>
-            </div>
-            <div className="stat-divider" />
-            <div className="stat-item">
-              <div className="stat-number">99.8%</div>
-              <div className="stat-label">Accuracy</div>
-            </div>
-            <div className="stat-divider" />
-            <div className="stat-item">
-              <div className="stat-number">5M+</div>
-              <div className="stat-label">Notes Generated</div>
-            </div>
-          </div>
         </div>
 
         <div className="hero-visual">
-          <div className="visual-bg" />
-          <div className="visual-card">
-            <div className="visual-header">
-              <div className="visual-icon">
-                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
-                </svg>
+          <div className="recording-window">
+            <div className="window-header">
+              <div className="window-buttons">
+                <div className="window-btn red"></div>
+                <div className="window-btn yellow"></div>
+                <div className="window-btn green"></div>
               </div>
-              <div className="visual-info">
-                <div className="visual-line" />
-                <div className="visual-line short" />
-              </div>
-              <div className="visual-status">
-                <div className="status-dot" />
-                Recording
-              </div>
+              <div className="window-title">Recording Session</div>
+              <div className="window-spacer"></div>
             </div>
-            <div className="visual-bars">
-              <div className="visual-bar inactive" />
-              <div className="visual-bar inactive" />
-              <div className="visual-bar inactive" />
-              <div className="visual-bar active" />
+            <div className="recording-content">
+              <div className="audio-visualizer">
+                <div className="audio-bar" style={{height: '40%'}}></div>
+                <div className="audio-bar" style={{height: '70%'}}></div>
+                <div className="audio-bar" style={{height: '90%'}}></div>
+                <div className="audio-bar" style={{height: '60%'}}></div>
+                <div className="audio-bar" style={{height: '85%'}}></div>
+                <div className="audio-bar" style={{height: '55%'}}></div>
+                <div className="audio-bar" style={{height: '75%'}}></div>
+                <div className="audio-bar" style={{height: '95%'}}></div>
+                <div className="audio-bar" style={{height: '65%'}}></div>
+                <div className="audio-bar" style={{height: '80%'}}></div>
+                <div className="audio-bar" style={{height: '50%'}}></div>
+                <div className="audio-bar" style={{height: '70%'}}></div>
+                <div className="audio-bar" style={{height: '85%'}}></div>
+                <div className="audio-bar" style={{height: '60%'}}></div>
+                <div className="audio-bar" style={{height: '75%'}}></div>
+                <div className="audio-bar" style={{height: '45%'}}></div>
+                <div className="audio-bar" style={{height: '80%'}}></div>
+                <div className="audio-bar" style={{height: '70%'}}></div>
+                <div className="audio-bar" style={{height: '55%'}}></div>
+                <div className="audio-bar" style={{height: '90%'}}></div>
+              </div>
+              <div className="recording-timer">
+                <div className="timer-dot"></div>
+                <span className="timer-text">12:34</span>
+              </div>
+              <div className="recording-status">Session in progress...</div>
             </div>
-            <div className="visual-footer">
-              <span>
+            <div className="ai-processing-badge">
+              <div className="ai-badge-icon">
                 <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
-                AI Processing
-              </span>
-              <span className="mono">00:01:23</span>
+              </div>
+              <div className="ai-badge-content">
+                <div className="ai-badge-title">AI Processing</div>
+                <div className="ai-badge-subtitle">Generating SOAP note...</div>
+              </div>
             </div>
           </div>
         </div>
