@@ -2941,3 +2941,104 @@ body {
     color: white;
     stroke-width: 2;
 }
+
+/* Updated Hero Section - Clean Blue Design */
+.hero-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    padding: 120px 24px 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-badge-new {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(147, 197, 253, 0.3);
+    padding: 10px 20px;
+    border-radius: 9999px;
+    color: #93c5fd;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+}
+
+.hero-badge-new .icon-small {
+    color: #93c5fd;
+}
+
+.hero-title-clean {
+    font-size: 72px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .hero-title-clean {
+        font-size: 96px;
+    }
+}
+
+.hero-description {
+    font-size: 20px;
+    color: rgba(219, 234, 254, 0.8);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+}
+
+.btn-hero-primary {
+    padding: 16px 32px;
+    background: var(--blue-500);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-hero-primary:hover {
+    background: var(--blue-600);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-primary .icon {
+    transition: transform 0.3s;
+}
+
+.btn-hero-primary:hover .icon {
+    transform: translateX(4px);
+}

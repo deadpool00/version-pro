@@ -71,24 +71,17 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
-          <div className="hero-badge-hipaa">
+          <div className="hero-badge-new">
             <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span>HIPAA Compliant Platform</span>
+            <span>NEXT GEN CLINICAL INTELLIGENCE</span>
           </div>
-          <h1 className="hero-title-new">
-            Transform
-            <br />
-            Your Sessions
-            <br />
-            Into Perfect
-            <br />
-            <span className="gradient-text-purple">SOAP Notes</span>
+          <h1 className="hero-title-clean">
+            Clinical Notes,
           </h1>
           <p className="hero-description">
-            Turn patient conversations into structured, professional SOAP notes instantly.
-            Experience the power of advanced neural audio processing with zero data retention.
+            Turn patient conversations into structured, professional SOAP notes instantly. Experience the power of advanced neural audio processing with zero data retention.
           </p>
           <div className="hero-buttons">
             <button className="btn-hero-primary" onClick={onGoToAuth}>
@@ -97,176 +90,54 @@ const LandingView: React.FC<LandingProps> = ({ onGoToAuth }) => (
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </button>
-            <button className="btn-hero-secondary" onClick={onGoToAuth}>
-              Watch Demo
-            </button>
-          </div>
-        </div>
-
-        <div className="hero-visual">
-          <div className="recording-window">
-            <div className="window-header">
-              <div className="window-buttons">
-                <div className="window-btn red"></div>
-                <div className="window-btn yellow"></div>
-                <div className="window-btn green"></div>
-              </div>
-              <div className="window-title">Recording Session</div>
-              <div className="window-spacer"></div>
-            </div>
-            <div className="recording-content">
-              <div className="audio-visualizer">
-                <div className="audio-bar" style={{height: '40%'}}></div>
-                <div className="audio-bar" style={{height: '70%'}}></div>
-                <div className="audio-bar" style={{height: '90%'}}></div>
-                <div className="audio-bar" style={{height: '60%'}}></div>
-                <div className="audio-bar" style={{height: '85%'}}></div>
-                <div className="audio-bar" style={{height: '55%'}}></div>
-                <div className="audio-bar" style={{height: '75%'}}></div>
-                <div className="audio-bar" style={{height: '95%'}}></div>
-                <div className="audio-bar" style={{height: '65%'}}></div>
-                <div className="audio-bar" style={{height: '80%'}}></div>
-                <div className="audio-bar" style={{height: '50%'}}></div>
-                <div className="audio-bar" style={{height: '70%'}}></div>
-                <div className="audio-bar" style={{height: '85%'}}></div>
-                <div className="audio-bar" style={{height: '60%'}}></div>
-                <div className="audio-bar" style={{height: '75%'}}></div>
-                <div className="audio-bar" style={{height: '45%'}}></div>
-                <div className="audio-bar" style={{height: '80%'}}></div>
-                <div className="audio-bar" style={{height: '70%'}}></div>
-                <div className="audio-bar" style={{height: '55%'}}></div>
-                <div className="audio-bar" style={{height: '90%'}}></div>
-              </div>
-              <div className="recording-timer">
-                <div className="timer-dot"></div>
-                <span className="timer-text">12:34</span>
-              </div>
-              <div className="recording-status">Session in progress...</div>
-            </div>
-            <div className="ai-processing-badge">
-              <div className="ai-badge-icon">
-                <svg className="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-              </div>
-              <div className="ai-badge-content">
-                <div className="ai-badge-title">AI Processing</div>
-                <div className="ai-badge-subtitle">Generating SOAP note...</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="how-it-works-section">
+      {/* Professional Grade Documentation */}
+      <section className="features-section">
         <div className="section-header">
-          <h2>How It Works</h2>
-          <p>Three simple steps to transform your clinical documentation workflow</p>
+          <h2>Professional Grade Documentation</h2>
+          <p>Designed for modern healthcare providers who value accuracy, security, and efficiency.</p>
         </div>
-        <div className="steps-grid">
-          <div className="step-card">
-            <div className="step-number">1</div>
-            <div className="step-icon bg-blue">
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon bg-blue">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
               </svg>
             </div>
-            <h3>Record Session</h3>
-            <p>Start recording your patient session with a single click. Upload audio files or use real-time recording.</p>
+            <h3>Instant Transcription</h3>
+            <p>
+              Proprietary medical speech-to-text engine captures complex terminology with 99.8%
+              accuracy.
+            </p>
           </div>
-          <div className="step-card">
-            <div className="step-number">2</div>
-            <div className="step-icon bg-indigo">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-              </svg>
-            </div>
-            <h3>AI Processing</h3>
-            <p>Our advanced AI transcribes and analyzes the conversation, identifying key clinical information automatically.</p>
-          </div>
-          <div className="step-card">
-            <div className="step-number">3</div>
-            <div className="step-icon bg-green">
+
+          <div className="feature-card">
+            <div className="feature-icon bg-indigo">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" />
               </svg>
             </div>
-            <h3>Get SOAP Notes</h3>
-            <p>Receive professionally formatted SOAP notes ready to copy into your EHR system or export as needed.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features-section-new">
-        <div className="section-header">
-          <div className="section-badge">FEATURES</div>
-          <h2>Everything you need for effortless documentation</h2>
-          <p>Spend more time with patients, less time on paperwork</p>
-        </div>
-        <div className="feature-cards-grid">
-          <div className="feature-card-new">
-            <div className="feature-card-icon">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
-              </svg>
-            </div>
-            <h3>One-Click Recording</h3>
-            <p>Start recording with a single click. Audio is encrypted and processed in real-time with clinical accuracy.</p>
-            <div className="feature-visual">
-              <div className="visual-mic-line"></div>
-            </div>
+            <h3>Auto-Structured SOAP</h3>
+            <p>
+              Intelligent formatting automatically categorizes Subjective, Objective, Assessment, and
+              Plan data.
+            </p>
           </div>
 
-          <div className="feature-card-new featured">
-            <div className="featured-badge">MOST POPULAR</div>
-            <div className="feature-card-icon">
+          <div className="feature-card">
+            <div className="feature-icon bg-slate">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
             </div>
-            <h3>AI-Powered SOAP Notes</h3>
-            <p>Our specialized AI understands clinical context and generates accurate, professional SOAP notes in seconds.</p>
-            <div className="feature-visual">
-              <div className="visual-dots">
-                <div className="dot"></div>
-                <div className="dot"></div>
-                <div className="dot"></div>
-              </div>
-            </div>
-          </div>
-
-          <div className="feature-card-new">
-            <div className="feature-card-icon">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-              </svg>
-            </div>
-            <h3>Smart Editing</h3>
-            <p>Review and refine generated notes with our intuitive editor. Your clinical voice, enhanced by AI.</p>
-            <div className="feature-visual">
-              <div className="visual-line-short"></div>
-            </div>
-          </div>
-
-          <div className="feature-card-new">
-            <div className="feature-card-icon">
-              <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <path d="M7 10l5 5 5-5" />
-                <path d="M12 15V3" />
-              </svg>
-            </div>
-            <h3>EHR Integration</h3>
-            <p>Export directly to SimplePractice, TherapyNotes, and more. One click to your existing workflow.</p>
-            <div className="feature-visual">
-              <div className="visual-export-icon"></div>
-            </div>
+            <h3>Zero-Retention Privacy</h3>
+            <p>
+              HIPAA-compliant architecture ensures audio processing happens in volatile memory only.
+            </p>
           </div>
         </div>
       </section>
